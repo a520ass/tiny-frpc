@@ -25,10 +25,8 @@ jobs:
         run: |
           ./package.sh
 
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v5
+      - name: Upload
+        uses: actions/upload-artifact@main
         with:
-          version: latest
-          args: release --clean --release-notes=./Release.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: tiny-frpc
+          path: release/
